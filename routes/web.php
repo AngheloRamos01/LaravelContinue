@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,10 +27,23 @@ Route::post('/login/process',[UserController::class,'process']);
 
 Route::get('/logout',[UserController::class,'logout']);
 
-Route::get('/delete/{id}',[CustomerController::class,'delete'])->middleware('auth');;
+Route::get('/delete/{id}',[CustomerController::class,'delete'])->middleware('auth');
 
 Route::get('/addUser',[CustomerController::class,'addUser']);
 Route::post('/save',[CustomerController::class,'save']);
 
-Route::get('/editUser{id}',[CustomerController::class,'editUser']);
-Route::post('/editCustomer{id}',[CustomerController::class,'editCustomer']);
+Route::get('/editUser/{id}',[CustomerController::class,'editUser'])->middleware('auth');
+Route::post('/updateUser',[CustomerController::class,'updateUser']);
+
+//index
+Route::get('/', [ProductController::class,'index']);
+//add
+Route::get('/addProduct',[ProductController::class,'addProduct']);
+Route::post('/saveProduct',[ProductController::class,'saveProduct']);
+//edit
+Route::get('/editProduct/{id}',[ProductController::class,'editProduct']);
+Route::post('/updateProduct',[ProductController::class,'updateProduct']);
+//delete
+Route::get('/deleteProduct/{id}',[ProductController::class,'deleteProduct']);
+
+

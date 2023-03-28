@@ -1,13 +1,18 @@
 @include('partials.header')
 
 <h3>Edit Account</h3>
-<form action="/editUser{{$customers[0]->id}}" method="post">
+
+
+<form action="/updateUser" method="POST">
+  
     @csrf
-    
+   
     @error('email')
         <p>Invalid Account</p>
     @enderror
 
+ 
+    <input type="hidden" id="Id" name="id" value="{{$customers->id}}">
 
     <div class="mb-3">
       <label for="LastName" class="form-label">Last Name</label>
@@ -15,7 +20,7 @@
       type="text" 
       class="form-control" 
       name="lastName"
-      value="{{$customers[0]->lastName}}">
+      value="{{$customers->lastName}}">
     </div>
 
     <div class="mb-3">
@@ -24,7 +29,7 @@
       type="text" 
       class="form-control" 
       name="firstName"
-      value="{{$customers[0]->firstName}}">
+      value="{{$customers->firstName}}">
     </div>
 
     <div class="mb-3">
@@ -33,7 +38,7 @@
       type="text" 
       class="form-control" 
       name="email"
-      value="{{$customers[0]->email}}">
+      value="{{$customers->email}}">
     </div>
     <div class="mb-3">
       <label for="contactNumber" class="form-label">Contact Number</label>
@@ -41,7 +46,7 @@
       type="text" 
       class="form-control" 
       name="contactNumber"
-      value="{{$customers[0]->contactNumber}}">
+      value="{{$customers->contactNumber}}">
     </div>
     <div class="mb-3">
       <label for="address" class="form-label">Address</label>
@@ -49,7 +54,7 @@
       type="text" 
       class="form-control" 
       name="address"
-      value="{{$customers[0]->address}}">
+      value="{{$customers->address}}">
     </div>
    
 

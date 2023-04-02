@@ -36,7 +36,7 @@ Route::get('/editUser/{id}',[CustomerController::class,'editUser'])->middleware(
 Route::post('/updateUser',[CustomerController::class,'updateUser']);
 
 //index
-Route::get('/', [ProductController::class,'index']);
+Route::get('/productIndex', [ProductController::class,'index']);
 //add
 Route::get('/addProduct',[ProductController::class,'addProduct']);
 Route::post('/saveProduct',[ProductController::class,'saveProduct']);

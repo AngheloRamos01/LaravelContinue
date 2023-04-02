@@ -15,6 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         $data = Product::all();
+        //dd($data);
         return view('product.index',['products'=>$data]);
     } 
     /**
@@ -46,7 +47,7 @@ class ProductController extends Controller
 
         $product=Product::create($validated);
 
-        return redirect("/");
+        return redirect("/productIndex");
     }
 
     /**
@@ -76,8 +77,13 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function deleteProduct($id)
     {
-        //
+        $delete =DB::table("products")
+        ->where("id", "=", $id)
+        ->delete();
+        
+        return redirect('/productIndex')->with('success','Product has been Deleted Successfully');
+        
     }
 }

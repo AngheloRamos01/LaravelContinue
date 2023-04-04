@@ -6,11 +6,11 @@
 @endif
 
 
-
-<div class="overflow-hidden rounded-lg border border-gray-200  shadow-md m-5">
-  <div>
-  <button type="button" class="btn btn-light float-right" ><a href={{"/addProduct"}} style="text-decoration: none">Add Product</a></button>
+<div>
+  <button type="button" class="btn btn-light float-right m-5" ><a href={{"/addProduct"}} style="text-decoration: none">Add Product</a></button>
   </div>
+<div class="overflow-hidden rounded-lg border border-gray-200  shadow-md m-5">
+ 
     <table class="w-full border-collapse bg-white text-left text-sm text-gray-500 table table-dark table-hover">
       <thead class="bg-gray-50">
         <tr>
